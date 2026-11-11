@@ -1,0 +1,418 @@
+<!doctype html>
+<!-- status: draft (v1.0, 2026-11-10), waiting on Tony. Built from stages/06_hackpack/output/hackpack-plan.md v3.1. Model list re-checked 2026-11-10 (z-ai/glm-5.3-flash live). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUILD CITY HACKPACK</title>
+<meta name="description" content="Everything for the NEAR Private AI Hackathon NYC, Wed Nov 11, 2026: check-in, setup, talks, ideas, building and submitting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #E9E1CD; --card: #F4EFE3; --ink: #322E25; --muted: #655D4F; --soft: #4A443A;
+    --blue: #0667DC; --blue-soft: #D6E6FB; --on-blue: #F7F3EA; --line: rgba(50,46,37,.22);
+    --mono: 'IBM Plex Mono', 'Courier New', monospace; --head: Arial, Helvetica, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.55 var(--mono); -webkit-text-size-adjust: 100%; }
+  a { color: var(--blue); text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+  .band { height: 10px; background: repeating-linear-gradient(90deg, var(--blue) 0 10px, rgba(6,103,220,.25) 10px 15px); }
+  h1, h2, h3 { font-family: var(--head); font-weight: 700; text-transform: uppercase; letter-spacing: -.02em; line-height: 1.05; margin: 0; }
+  h1 { font-size: clamp(36px, 9vw, 64px); letter-spacing: -.03em; }
+  h2 { font-size: clamp(26px, 6vw, 38px); }
+  h3 { font-size: 19px; text-transform: none; letter-spacing: -.01em; line-height: 1.2; }
+  p { margin: 0 0 10px; }
+  .kicker { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+  .muted { color: var(--muted); }
+  code, .code { font-family: var(--mono); background: rgba(50,46,37,.08); padding: 1px 5px; border-radius: 2px; font-size: .95em; word-break: break-word; }
+
+  header.top { padding: 22px 0 20px; }
+  .logos { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
+  .logos .bc { height: 40px; width: auto; display: block; }
+  .logos .x { color: var(--muted); font-size: 18px; }
+  .logos .near { height: 22px; width: auto; display: block; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 12px; color: var(--muted); font-size: 13px; }
+  .tag { display: inline-block; background: var(--blue); color: var(--on-blue); font-size: 11px; font-weight: 600; letter-spacing: .1em; padding: 2px 7px; margin-right: 6px; vertical-align: 1px; }
+
+  nav.jump { position: sticky; top: 0; z-index: 5; background: var(--paper); border-bottom: 2px solid var(--ink); }
+  nav.jump .wrap { display: flex; gap: 6px; overflow-x: auto; padding-top: 10px; padding-bottom: 10px; scrollbar-width: none; }
+  nav.jump .wrap::-webkit-scrollbar { display: none; }
+  nav.jump a { flex: none; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; color: var(--ink); border: 1.5px solid var(--ink); padding: 5px 10px; background: var(--card); }
+  nav.jump a:first-child { background: var(--blue); border-color: var(--blue); color: var(--on-blue); }
+
+  section { padding: 34px 0 8px; }
+  section > .wrap > h2 { margin-bottom: 18px; }
+  .card { background: var(--card); border: 2px solid var(--ink); padding: 16px 18px; margin-bottom: 12px; }
+  .card.blue { background: var(--blue); border-color: var(--blue); color: var(--on-blue); }
+  .card.blue a { color: var(--on-blue); }
+  .card.dark { background: var(--ink); border-color: var(--ink); color: var(--card); }
+  .card.dark a { color: #9EC5FF; }
+  .card h3 { margin-bottom: 6px; }
+  ul.clean { margin: 0; padding-left: 18px; }
+  ul.clean li { margin-bottom: 6px; }
+
+  /* Start here */
+  .site { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .site .url { font-family: var(--head); font-weight: 700; font-size: clamp(22px, 5.5vw, 30px); letter-spacing: -.02em; text-decoration: none; }
+  ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  ol.steps li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: start; background: var(--card); border: 2px solid var(--ink); padding: 14px 16px; }
+  ol.steps .n { font-family: var(--head); font-weight: 700; font-size: 34px; line-height: 1; color: var(--blue); }
+  ol.steps h3 { margin-bottom: 4px; }
+  ol.steps p { margin: 0; font-size: 14px; color: var(--soft); }
+  .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .btn { display: inline-block; font-size: 13px; font-weight: 600; text-decoration: none; padding: 7px 12px; border: 2px solid var(--blue); color: var(--blue); background: transparent; }
+  .btn.solid { background: var(--blue); color: var(--on-blue); }
+  .card.blue .btn { border-color: var(--on-blue); color: var(--on-blue); }
+  .card.blue .btn.solid { background: var(--on-blue); color: var(--blue); }
+
+  /* copy boxes */
+  .copy { position: relative; background: var(--ink); color: var(--card); padding: 14px 16px 14px; margin: 10px 0 14px; }
+  .copy .lbl { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #9EC5FF; font-weight: 600; margin-bottom: 6px; }
+  .copy pre { margin: 0; white-space: pre-wrap; word-break: break-word; font: 13.5px/1.55 var(--mono); }
+  .copy button { position: absolute; top: 10px; right: 10px; font: 600 12px var(--mono); background: var(--card); color: var(--ink); border: 0; padding: 5px 10px; cursor: pointer; }
+  .copy button.ok { background: #9EC5FF; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--card); border: 2px solid var(--ink); }
+  th, td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--blue); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+  tr:last-child td { border-bottom: 0; }
+  .tablewrap { overflow-x: auto; margin-bottom: 12px; }
+
+  .talk { display: grid; grid-template-columns: 64px 1fr; gap: 12px; }
+  .talk .time { font-weight: 600; color: var(--blue); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 4px; }
+  .chip { font-size: 12.5px; border: 1.5px solid var(--ink); padding: 3px 8px; background: var(--card); }
+  .grid2 { display: grid; gap: 12px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+  .check li { list-style: none; position: relative; padding-left: 26px; margin-bottom: 8px; }
+  .check li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--blue); font-weight: 700; }
+  ul.check { padding: 0; margin: 0; }
+
+  footer { margin-top: 30px; padding: 22px 0 36px; border-top: 2px solid var(--ink); font-size: 13px; color: var(--muted); }
+  footer .logos { margin: 12px 0 0; }
+  footer .legion { height: 34px; width: 34px; }
+</style>
+</head>
+<body>
+<div class="band"></div>
+
+<header class="top">
+  <div class="wrap">
+    <div class="logos">
+      <img class="bc" src="img/build-city-logo-blue.png" alt="Build City" width="174" height="40">
+      <span class="x">×</span>
+      <img class="near" src="img/near-logo-ink.png" alt="NEAR" width="84" height="22">
+    </div>
+    <div class="kicker">NEAR Private AI Hackathon NYC · Wed 11.11.26</div>
+    <h1>Build City Hackpack</h1>
+    <div class="meta">
+      <span>The Wilson, 132 W 27th St</span>
+      <span>9:00 AM – 6:00 PM ET</span>
+      <span><span class="tag">WI-FI</span><b>innside</b> · no password</span>
+    </div>
+  </div>
+</header>
+
+<nav class="jump" aria-label="Sections">
+  <div class="wrap">
+    <a href="#start">Start here</a>
+    <a href="#welcome">1 Welcome</a>
+    <a href="#quickstart">2 Quick start</a>
+    <a href="#talks">3 Talks</a>
+    <a href="#idea">4 Your idea</a>
+    <a href="#build">5 Build</a>
+    <a href="#submit">6 Demo &amp; submit</a>
+  </div>
+</nav>
+
+<main>
+<!-- ============ START HERE ============ -->
+<section id="start">
+  <div class="wrap">
+    <div class="kicker">Quick start</div>
+    <h2>Start here</h2>
+
+    <div class="card site">
+      <div>
+        <div class="kicker" style="margin-bottom:2px">Main hackathon site</div>
+        <a class="url" href="https://nearhackathon.com" target="_blank" rel="noopener">nearhackathon.com</a>
+      </div>
+    </div>
+
+    <ol class="steps">
+      <li><span class="n">1</span><div><h3>Check in</h3><p>Sign up for today on the NEAR Legion City Node app.</p>
+        <div class="btns"><a class="btn solid" href="https://citynode.app/onboard?code=euWym8Vpqx-GNlak9rG2NvrQMIoCGwm48Qu6PF4Ka3k" target="_blank" rel="noopener">Open City Node</a></div></div></li>
+      <li><span class="n">2</span><div><h3>Join the WhatsApp</h3><p>The Builders Cafe group: updates all day, and this hackpack is pinned there.</p>
+        <div class="btns"><a class="btn solid" href="https://chat.whatsapp.com/KlppCBC9RZA4hgDLlsP60y" target="_blank" rel="noopener">Join Builders Cafe</a></div></div></li>
+      <li><span class="n">3</span><div><h3>Create a NEAR wallet</h3><p>Meteor Wallet, about a minute. You need it to submit and to receive funds.</p>
+        <div class="btns"><a class="btn solid" href="https://www.youtube.com/watch?v=XbmbjgedQV8" target="_blank" rel="noopener">Watch: wallet video</a><a class="btn" href="https://meteorwallet.app" target="_blank" rel="noopener">meteorwallet.app</a></div></div></li>
+      <li><span class="n">4</span><div><h3>Claim $10 in AI credits</h3><p>One NEAR AI Cloud API key per builder.</p>
+        <div class="btns"><a class="btn solid" href="https://www.youtube.com/watch?v=dACSz1mihRE" target="_blank" rel="noopener">Watch: credits video</a><a class="btn" href="https://nearbuilders.org/dashboard" target="_blank" rel="noopener">nearbuilders.org/dashboard</a></div></div></li>
+      <li><span class="n">5</span><div><h3>Start with OpenCode</h3><p>Point an AI coding agent at NEAR AI Cloud in a few minutes.</p>
+        <div class="btns"><a class="btn solid" href="https://www.youtube.com/watch?v=WV1Jln57uCc" target="_blank" rel="noopener">Watch: NEAR DevHub, 3 min</a><a class="btn" href="#quickstart-connect">Setup details</a></div></div></li>
+      <li><span class="n">6</span><div><h3>Build with Hermes</h3><p>Hermes Agent on NEAR AI Cloud, end to end.</p>
+        <div class="btns"><a class="btn solid" href="#build">See section 5</a></div></div></li>
+      <li><span class="n">7</span><div><h3>Build with ICM</h3><p>Turn your idea into a folder your agent can work through.</p>
+        <div class="btns"><a class="btn solid" href="#build">See section 5</a></div></div></li>
+    </ol>
+
+    <div class="card blue" style="margin-top:12px">
+      <h3>Stuck?</h3>
+      <p style="margin:0">Ask in the NEAR Builders Telegram, <b>@nearbuilderschat</b> (make a Telegram account first), drop it in the WhatsApp, or grab one of us: we're walking around all day.</p>
+      <div class="btns"><a class="btn solid" href="https://t.me/nearbuilderschat" target="_blank" rel="noopener">Open Telegram chat</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 1 WELCOME ============ -->
+<section id="welcome">
+  <div class="wrap">
+    <div class="kicker">Section 1</div>
+    <h2>Welcome &amp; the day</h2>
+
+    <div class="tablewrap"><table>
+      <tr><th style="width:24%">Time</th><th>What</th></tr>
+      <tr><td>9:00</td><td>Registration, check-in &amp; breakfast</td></tr>
+      <tr><td>9:45</td><td>Welcome &amp; introduction</td></tr>
+      <tr><td>9:55</td><td>NEAR AI Cloud quick start &amp; the day's rules</td></tr>
+      <tr><td>10:10</td><td>Technical talks (four, 20 minutes each)</td></tr>
+      <tr><td>11:30</td><td>Idea worksheet, mixer, then build</td></tr>
+      <tr><td>1:00</td><td>Lunch &amp; networking</td></tr>
+      <tr><td>1:30</td><td>Building &amp; mentorship · demo sign-up 2:30–4:00</td></tr>
+      <tr><td>4:30</td><td>Project demos &amp; showcase</td></tr>
+      <tr><td>5:30</td><td>Closing &amp; networking</td></tr>
+    </table></div>
+    <div class="btns" style="margin:0 0 16px"><a class="btn solid" href="files/agenda-and-idea-worksheet.pdf" target="_blank">Agenda + idea worksheet (PDF)</a></div>
+
+    <div class="card">
+      <h3>Part of the global NEAR Hackathon</h3>
+      <p>Today is day 11 of 14. You submit your project to the global hackathon, and you have until <b>Sat Nov 14, 6:59 PM ET</b> to finish it. $250K prize pool across 13 tracks; Track 3 is Privacy &amp; Private AI.</p>
+      <p style="margin:0"><b>No judging today.</b> The 4:30 demos are a showcase; the global judges decide the prizes.</p>
+    </div>
+    <div class="card">
+      <h3>Builders Café</h3>
+      <p style="margin:0">A series of events Build City hosts at local cafés across the city, every week. They tend to be research-based. The events and the WhatsApp group are one of the best ways to keep up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 QUICK START ============ -->
+<section id="quickstart">
+  <div class="wrap">
+    <div class="kicker">Section 2</div>
+    <h2>Quick start</h2>
+
+    <div class="card">
+      <h3>1 · Check in</h3>
+      <p style="margin:0">Open the <a href="https://citynode.app/onboard?code=euWym8Vpqx-GNlak9rG2NvrQMIoCGwm48Qu6PF4Ka3k" target="_blank" rel="noopener">City Node app onboarding</a> (citynode.app/onboard).</p>
+    </div>
+    <div class="card">
+      <h3>2 · Create a NEAR wallet</h3>
+      <p>Use <a href="https://meteorwallet.app" target="_blank" rel="noopener">Meteor Wallet</a>: open wallet, create a password, claim your .near name, create the wallet, save your seed phrase. The submission form asks for a mainnet NEAR payout account. <b>Never share your seed phrase.</b></p>
+      <div class="btns"><a class="btn solid" href="https://www.youtube.com/watch?v=XbmbjgedQV8" target="_blank" rel="noopener">Watch: Wallet Creation</a></div>
+    </div>
+    <div class="card">
+      <h3>3 · Claim $10 in AI credits</h3>
+      <p>Go to <a href="https://nearbuilders.org/dashboard" target="_blank" rel="noopener">nearbuilders.org/dashboard</a>: connect with NEAR, sign the message, publish a builder profile, claim $10.00, copy your key. One NEAR AI Cloud API key per builder; the offer closes 11/15/2026.</p>
+      <p>Your key starts with <code>sk-</code> and shows <b>once</b>. Never show it on screen, paste it into a chat or commit it.</p>
+      <div class="btns"><a class="btn solid" href="https://www.youtube.com/watch?v=dACSz1mihRE" target="_blank" rel="noopener">Watch: Claim AI Credits</a></div>
+    </div>
+    <div class="card" id="quickstart-connect">
+      <h3>4 · Point your agent at NEAR</h3>
+      <p><b>Fastest, OpenCode:</b> install OpenCode, run <code>connect</code>, search "Near AI cloud", paste your key, pick a Confidential TEE model.</p>
+      <div class="btns" style="margin:0 0 12px"><a class="btn solid" href="https://www.youtube.com/watch?v=WV1Jln57uCc" target="_blank" rel="noopener">Watch: NEAR DevHub, 3 min</a></div>
+      <p><b>Any OpenAI-compatible client</b> (Cursor, Continue, Cline, Aider, Zed, Goose, LiteLLM…):</p>
+      <div class="copy"><div class="lbl">Settings</div><button type="button">Copy</button><pre>base URL: https://cloud-api.near.ai/v1
+model:    z-ai/glm-5.3-flash</pre></div>
+      <p>Or try one call from a terminal (put your key in <code>NEARAI_API_KEY</code> first, never in the command):</p>
+      <div class="copy"><div class="lbl">First call</div><button type="button">Copy</button><pre>curl https://cloud-api.near.ai/v1/chat/completions \
+  -H "Authorization: Bearer $NEARAI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"model": "z-ai/glm-5.3-flash",
+       "messages": [{"role": "user", "content": "Say hello in one sentence."}],
+       "chat_template_kwargs": {"enable_thinking": false}}'</pre></div>
+      <p class="muted" style="margin:0">GLM 5.3 Flash is NEAR's own Confidential TEE model. Thinking is on by default, so answers can take a minute; the last line turns it off. Live model list: <a href="https://cloud-api.near.ai/v1/models" target="_blank" rel="noopener">cloud-api.near.ai/v1/models</a> (checked Nov 10).</p>
+    </div>
+
+    <h3 style="margin:22px 0 10px">Pick the right privacy tier</h3>
+    <div class="tablewrap"><table>
+      <tr><th>Tier</th><th>Runs where</th><th>Private?</th></tr>
+      <tr><td><b>Confidential TEE</b></td><td>NEAR's own GPUs</td><td><b>Yes.</b> Prompt and output hidden from everyone, NEAR included</td></tr>
+      <tr><td><b>Attested 3P</b></td><td>A third-party TEE</td><td>Encrypted path; the provider publishes its own proof</td></tr>
+      <tr><td><b>Incognito</b></td><td>The provider's servers</td><td><b>No.</b> Only the gateway is in a TEE (Anthropic, OpenAI, Google, xAI and others)</td></tr>
+    </table></div>
+    <div class="card blue"><p style="margin:0"><b>Only the model call is private.</b> Your laptop, your agent and the files it sends sit outside the TEE. Models and prices: <a href="https://near.ai/models" target="_blank" rel="noopener">near.ai/models</a></p></div>
+
+    <h3 style="margin:22px 0 10px">Four rules for today</h3>
+    <div class="grid2">
+      <div class="card"><b>1. Never show your API key</b> on screen, in a chat or in a repo.</div>
+      <div class="card"><b>2. Build with your own favorite AI tools.</b> The $10 in NEAR credits won't go far: save them for your app's private model calls.</div>
+      <div class="card"><b>3. Code freeze at 4:30</b> for the demos. Keep building after; submit by Nov 14.</div>
+      <div class="card"><b>4. Teams of up to 4.</b> One submission per project; solo builders welcome.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 TALKS ============ -->
+<section id="talks">
+  <div class="wrap">
+    <div class="kicker">Section 3 · 10:10–11:30</div>
+    <h2>Talks</h2>
+    <div class="card talk"><div class="time">10:10</div><div>
+      <h3>Confidential Computing</h3><p class="muted">Navneet Shrivastava</p>
+      <p>Protecting data while AI is thinking: TEEs, remote attestation, GPU confidential computing, and a checklist before you trust a private-AI endpoint.</p>
+      <div class="btns"><a class="btn solid" href="files/talk1-confidential-computing-navneet-shrivastava.pptx">Download slides (.pptx)</a></div></div></div>
+    <div class="card talk"><div class="time">10:30</div><div>
+      <h3>Privacy, Data Security, Ownership &amp; Sharing</h3><p class="muted">Benjamin Rutan, Scro</p>
+      <p style="margin:0">A live demo. Scro is a marketplace that is also its own arbitration system; three demos show how secure data sharing can be part of privacy-preserving transaction assurance, plus a look at data sharing across local and cloud environments.</p></div></div>
+    <div class="card talk"><div class="time">10:50</div><div>
+      <h3>Build with ICM</h3><p class="muted">Tony Singh</p>
+      <p style="margin:0">Folders and plain-text files that make AI workflows transparent and easy to inspect. Everything from the talk is in <a href="#build">section 5</a>.</p></div></div>
+    <div class="card talk"><div class="time">11:10</div><div>
+      <h3>Agentic Commerce</h3><p class="muted">Sathya Krishnasamy, ChainAIM</p>
+      <p>What agentic commerce is, where it stands, what's next, and five things builders can do today.</p>
+      <div class="btns"><a class="btn solid" href="files/talk4-agentic-commerce-sathya-krishnasamy.pptx">Download slides (.pptx)</a></div></div></div>
+  </div>
+</section>
+
+<!-- ============ 4 IDEA ============ -->
+<section id="idea">
+  <div class="wrap">
+    <div class="kicker">Section 4 · 11:30–12:00</div>
+    <h2>Pick your idea</h2>
+    <p>The idea worksheet is on the back of your agenda. Copy each prompt into your AI. 10 minutes with the AI, then 15 with people. Keep private details out of public chatbots.</p>
+
+    <h3 style="margin:18px 0 4px">1 · Brainstorm three ideas <span class="muted" style="font-weight:400">· 5 min with your AI</span></h3>
+    <div class="copy"><div class="lbl">Prompt</div><button type="button">Copy</button><pre>I have 4 hours at a private AI hackathon, building on NEAR AI Cloud (models run in TEEs, so prompts stay private). Ask me 5 short questions, one at a time, about my skills and the sensitive-data problems I care about. Then suggest 3 ideas I can demo by 4:30, each fitting a direction (Healthcare &amp; Personal Data, Finance &amp; Legal, AI Agents, Agentic Commerce, Community &amp; Nonprofits, Business Automation) or anything I'm excited about.</pre></div>
+
+    <h3 style="margin:18px 0 4px">2 · Pick one and say it in one line <span class="muted" style="font-weight:400">· 5 min with your AI</span></h3>
+    <div class="copy"><div class="lbl">Prompt</div><button type="button">Copy</button><pre>Take idea [A / B / C] and write it as one sentence of 20 words or fewer: "For [who], [project name] [does what], and it needs private AI because [why]." Give me 3 versions so I can pick one.</pre></div>
+
+    <h3 style="margin:18px 0 4px">3 · Share it and get feedback <span class="muted" style="font-weight:400">· 10 min with people</span></h3>
+    <p>Read your line to three people near you. Ask: is it clear? Would you use it? Do you want to build it with me?</p>
+
+    <h3 style="margin:18px 0 4px">4 · Sharpen the line and form your team <span class="muted" style="font-weight:400">· 5 min</span></h3>
+    <div class="copy"><div class="lbl">Prompt</div><button type="button">Copy</button><pre>Here is my one line: [line]. Here is the feedback I got: [notes]. Rewrite the line so it is clearer, still 20 words or fewer.</pre></div>
+    <p>Team of up to 4; solo welcome. Still looking? Post your final line in the Builders Cafe WhatsApp.</p>
+
+    <h3 style="margin:22px 0 8px">Six directions <span class="muted" style="font-weight:400">· optional</span></h3>
+    <p>Ideas to get you started, not requirements. Build anything you like.</p>
+    <div class="chips">
+      <span class="chip">Healthcare &amp; Personal Data</span><span class="chip">Finance &amp; Legal</span><span class="chip">AI Agents</span>
+      <span class="chip">Agentic Commerce</span><span class="chip">Community &amp; Nonprofits</span><span class="chip">Business Automation</span>
+    </div>
+
+    <h3 style="margin:22px 0 8px">Use cases from the NEAR AI team</h3>
+    <p>Security and investigations work that needs private AI. NEAR AI's attestation proves nobody, NEAR included, can see what you're testing.</p>
+    <div class="grid2">
+      <div class="card"><b>Offensive security</b><ul class="clean"><li>Client pentests and red teaming</li><li>Pre-launch smart contract audits (about 1M tokens of context fits a whole codebase)</li><li>Bug bounty triage</li><li>Security product backends (OpenAI-compatible API, per-call attestation)</li></ul></div>
+      <div class="card"><b>Defensive security</b><ul class="clean"><li>Incident response and forensics (no prompt or response retention)</li><li>Threat intelligence</li><li>Detection engineering</li></ul></div>
+      <div class="card"><b>AI safety</b><ul class="clean"><li>Red-teaming AI systems</li><li>Training guard models</li></ul></div>
+      <div class="card"><b>Regulated investigations</b><ul class="clean"><li>Fraud and anti-money-laundering (attestation as proof for compliance)</li><li>Legal and compliance review</li><li>Trust and safety moderation</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 BUILD ============ -->
+<section id="build">
+  <div class="wrap">
+    <div class="kicker">Section 5 · 12:00–4:30</div>
+    <h2>Build</h2>
+
+    <div class="card">
+      <h3>Build with ICM</h3>
+      <p>Interpretable Context Methodology: numbered folders are the steps, plain-text files hold the instructions, and one agent reads only what each step needs. You review between steps. It works with any agent that can read a folder: Claude Code, Codex, Gemini CLI, Hermes, Cursor, OpenCode.</p>
+      <p>Start from your worksheet's final line: the starter guide has the prompt that turns it into a workspace.</p>
+      <div class="btns">
+        <a class="btn solid" href="files/icm-starter-guide.pdf" target="_blank">ICM starter guide (PDF)</a>
+        <a class="btn" href="https://github.com/RinDig/icm-architect" target="_blank" rel="noopener">icm-architect skill</a>
+        <a class="btn" href="https://arxiv.org/abs/2603.16021" target="_blank" rel="noopener">The paper</a>
+      </div>
+      <p class="muted" style="margin:10px 0 0;font-size:13px">ICM was created by Jake Van Clief &amp; David McDermott. Learn it free in the Clief Notes community on Skool.</p>
+    </div>
+
+    <div class="card">
+      <h3>Build with Hermes on NEAR AI Cloud</h3>
+      <p style="margin:0">Install Hermes Agent, add your key, point its config at NEAR AI Cloud, add the icm-architect skill and start in your project folder: four moves, all on <b>page 4 of the ICM starter guide</b>.</p>
+      <div class="btns"><a class="btn solid" href="files/icm-starter-guide.pdf#page=4" target="_blank">Hermes setup (guide p. 4)</a></div>
+    </div>
+
+    <div class="card">
+      <h3>HACKATHON.md: hand it to your agent</h3>
+      <p style="margin:0">A file from the hackathon site your coding agent can read: it knows the tracks, dates and submission steps, and can file your submission after you confirm. Download it into your project and tell your agent to read it. You choose the project and the tracks, review everything before it submits, and post the X demo yourself.</p>
+      <div class="btns"><a class="btn solid" href="https://nearhackathon.com/HACKATHON.md" target="_blank" rel="noopener">HACKATHON.md</a></div>
+    </div>
+
+    <div class="card blue">
+      <h3>Five ways to get unstuck</h3>
+      <ul class="clean">
+        <li><b>NEAR Builders Telegram:</b> <a href="https://t.me/nearbuilderschat" target="_blank" rel="noopener">@nearbuilderschat</a> (make a Telegram account first)</li>
+        <li><b>Builders Cafe WhatsApp:</b> <a href="https://chat.whatsapp.com/KlppCBC9RZA4hgDLlsP60y" target="_blank" rel="noopener">drop your question in the chat</a></li>
+        <li><b>Grab one of us:</b> we're walking around the room all day</li>
+        <li><b>Ask your favorite AI:</b> paste the error and ask it to explain (never your API key)</li>
+        <li><b>Ask each other:</b> the person next to you may have just solved it</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 DEMO & SUBMIT ============ -->
+<section id="submit">
+  <div class="wrap">
+    <div class="kicker">Section 6 · Demos 4:30 · Deadline Nov 14</div>
+    <h2>Demo &amp; submit</h2>
+
+    <div class="card">
+      <h3>Demo today (a showcase, not a contest)</h3>
+      <ul class="clean">
+        <li><b>2:30</b> sign-up opens: link posted in the WhatsApp</li>
+        <li><b>4:00</b> sign-up closes · <b>4:15</b> running order on screen</li>
+        <li><b>4:30</b> local code freeze, demos start</li>
+        <li>Slots, first come, first served: 10 or fewer teams, 5 min each; 11 to 18, 3 min; more than 18, the first 18 demo at 3 min</li>
+      </ul>
+    </div>
+
+    <div class="card dark">
+      <div class="kicker" style="color:#9EC5FF">Before Sat Nov 14, 6:59 PM ET</div>
+      <h3 style="margin-bottom:10px">Submit to the global hackathon</h3>
+      <ul class="check">
+        <li><b>Repo is public,</b> and the README says what it does and how to run it</li>
+        <li><b>Demo posted on X:</b> say it was built at NEAR HACKATHON, tag <b>@buidlcity</b>, <b>@NEARProtocol</b>, <b>@nearlegion</b> and <b>#NEARHackathon</b>, with a video or screenshots</li>
+        <li><b>Form submitted</b> with your repo link, your X post link and your mainnet NEAR payout account</li>
+        <li><b>No API key</b> anywhere in the repo or the video</li>
+      </ul>
+      <div class="btns"><a class="btn solid" style="background:#9EC5FF;border-color:#9EC5FF;color:#322E25" href="https://nearhackathon.com/#apply" target="_blank" rel="noopener">Submission form</a><a class="btn" style="border-color:#9EC5FF;color:#9EC5FF" href="https://nearhackathon.com/HACKATHON.md" target="_blank" rel="noopener">Demo post tips (HACKATHON.md)</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p style="margin:0">Hosted by Build City, the NEAR Legion NYC City Node · Part of the global <a href="https://nearhackathon.com" target="_blank" rel="noopener">NEAR Hackathon</a>, Nov 1–14</p>
+    <div class="logos">
+      <img class="bc" src="img/build-city-logo-blue.png" alt="Build City" width="174" height="40">
+      <span class="x">×</span>
+      <img class="legion" src="img/near-legion-logo.png" alt="NEAR Legion" width="34" height="34">
+      <img class="near" src="img/near-logo-ink.png" alt="NEAR" width="84" height="22">
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = b.parentNode.querySelector('pre').innerText;
+    var done = function () { b.textContent = 'Copied'; b.classList.add('ok'); setTimeout(function () { b.textContent = 'Copy'; b.classList.remove('ok'); }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t).then(done, function () {}); }
+    else { var r = document.createRange(); r.selectNodeContents(b.parentNode.querySelector('pre')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); try { document.execCommand('copy'); done(); } catch (e) {} }
+  });
+});
+</script>
+</body>
+</html>
