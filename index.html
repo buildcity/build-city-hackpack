@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- status: draft (v1.1, 2026-11-11: no Wi-Fi; Tony's two decks as PDFs (Welcome & Quick Start in section 1, Build with ICM in talk 3); rule 2 reworded; v1.0, 2026-11-10), waiting on Tony. Built from stages/06_hackpack/output/hackpack-plan.md v3.1. Model list re-checked 2026-11-10 (z-ai/glm-5.3-flash live). -->
+<!-- status: draft (v1.2, 2026-11-11: Build with OpenCode card in section 5; project directory link (nearhackathon.com/#projects) in sections 4 and 6; v1.1, 2026-11-11: no Wi-Fi; Tony's two decks as PDFs (Welcome & Quick Start in section 1, Build with ICM in talk 3); rule 2 reworded; v1.0, 2026-11-10), waiting on Tony. Built from stages/06_hackpack/output/hackpack-plan.md v3.1. Model list re-checked 2026-11-10 (z-ai/glm-5.3-flash live). -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -307,6 +307,12 @@ model:    z-ai/glm-5.3-flash</pre></div>
       <span class="chip">Agentic Commerce</span><span class="chip">Community &amp; Nonprofits</span><span class="chip">Business Automation</span>
     </div>
 
+    <div class="card" style="margin-top:16px">
+      <h3>See what others are building</h3>
+      <p style="margin:0">The hackathon site has a public project directory: search the submissions, filter by track (Privacy &amp; Private AI is one), and open the code and demos for ideas.</p>
+      <div class="btns"><a class="btn solid" href="https://nearhackathon.com/#projects" target="_blank" rel="noopener">Browse projects</a></div>
+    </div>
+
     <h3 style="margin:22px 0 8px">Use cases from the NEAR AI team</h3>
     <p>Security and investigations work that needs private AI. NEAR AI's attestation proves nobody, NEAR included, can see what you're testing.</p>
     <div class="grid2">
@@ -340,6 +346,21 @@ model:    z-ai/glm-5.3-flash</pre></div>
       <h3>Build with Hermes on NEAR AI Cloud</h3>
       <p style="margin:0">Install Hermes Agent, add your key, point its config at NEAR AI Cloud, add the icm-architect skill and start in your project folder: four moves, all on <b>page 4 of the ICM starter guide</b>.</p>
       <div class="btns"><a class="btn solid" href="files/icm-starter-guide.pdf#page=4" target="_blank">Hermes setup (guide p. 4)</a></div>
+    </div>
+
+    <div class="card">
+      <h3>Build with OpenCode on NEAR AI Cloud</h3>
+      <p>The quickest route: NEAR AI Cloud is built into OpenCode, and OpenCode reads ICM's <code>AGENTS.md</code> and Agent Skills on its own. Four moves:</p>
+      <ul class="clean">
+        <li><b>Install OpenCode</b> and open a terminal</li>
+        <li><b>Connect:</b> run <code>connect</code>, search "Near AI cloud", paste your key, pick a Confidential TEE model such as <code>z-ai/glm-5.3-flash</code></li>
+        <li><b>Add the skill:</b></li>
+      </ul>
+      <div class="copy"><div class="lbl">Terminal</div><button type="button">Copy</button><pre>git clone https://github.com/RinDig/icm-architect.git ~/.config/opencode/skills/icm-architect</pre></div>
+      <ul class="clean">
+        <li><b>Start in your project folder:</b> open OpenCode in an empty folder and paste the workspace prompt from page 2 of the ICM starter guide, with your worksheet's final line in it</li>
+      </ul>
+      <div class="btns"><a class="btn solid" href="https://www.youtube.com/watch?v=WV1Jln57uCc" target="_blank" rel="noopener">Watch: connect, 3 min</a><a class="btn" href="files/icm-starter-guide.pdf#page=2" target="_blank">The prompt (guide p. 2)</a></div>
     </div>
 
     <div class="card">
@@ -386,7 +407,7 @@ model:    z-ai/glm-5.3-flash</pre></div>
         <li><b>Form submitted</b> with your repo link, your X post link and your mainnet NEAR payout account</li>
         <li><b>No API key</b> anywhere in the repo or the video</li>
       </ul>
-      <div class="btns"><a class="btn solid" style="background:#9EC5FF;border-color:#9EC5FF;color:#322E25" href="https://nearhackathon.com/#apply" target="_blank" rel="noopener">Submission form</a><a class="btn" style="border-color:#9EC5FF;color:#9EC5FF" href="https://nearhackathon.com/HACKATHON.md" target="_blank" rel="noopener">Demo post tips (HACKATHON.md)</a></div>
+      <div class="btns"><a class="btn solid" style="background:#9EC5FF;border-color:#9EC5FF;color:#322E25" href="https://nearhackathon.com/#apply" target="_blank" rel="noopener">Submission form</a><a class="btn" style="border-color:#9EC5FF;color:#9EC5FF" href="https://nearhackathon.com/HACKATHON.md" target="_blank" rel="noopener">Demo post tips (HACKATHON.md)</a><a class="btn" style="border-color:#9EC5FF;color:#9EC5FF" href="https://nearhackathon.com/#projects" target="_blank" rel="noopener">Browse submitted projects</a></div>
     </div>
   </div>
 </section>
