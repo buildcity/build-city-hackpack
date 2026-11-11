@@ -67,6 +67,8 @@
   .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
   .btn { display: inline-block; font-size: 13px; font-weight: 600; text-decoration: none; padding: 7px 12px; border: 2px solid var(--blue); color: var(--blue); background: transparent; }
   .btn.solid { background: var(--blue); color: var(--on-blue); }
+  .signup { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: 10px 0 12px; padding: 12px; background: var(--blue-soft); border: 2px solid var(--blue); }
+  .signup img { flex: none; width: 120px; height: 120px; border: 2px solid var(--ink); background: #fff; }
   .card.blue .btn { border-color: var(--on-blue); color: var(--on-blue); }
   .card.blue .btn.solid { background: var(--on-blue); color: var(--blue); }
 
@@ -182,7 +184,7 @@
       <tr><td>10:10</td><td>Technical talks (four, 20 minutes each)</td></tr>
       <tr><td>11:30</td><td>Idea worksheet, mixer, then build</td></tr>
       <tr><td>1:00</td><td>Lunch &amp; networking</td></tr>
-      <tr><td>1:30</td><td>Building &amp; mentorship · demo sign-up 2:30–4:00</td></tr>
+      <tr><td>1:30</td><td>Building &amp; mentorship · <a href="#submit">demo sign-up</a> open now, closes 4:00</td></tr>
       <tr><td>4:30</td><td>Project demos &amp; showcase</td></tr>
       <tr><td>5:30</td><td>Closing &amp; networking</td></tr>
     </table></div>
@@ -390,8 +392,14 @@ model:    z-ai/glm-5.3-flash</pre></div>
 
     <div class="card">
       <h3>Demo today (a showcase, not a contest)</h3>
+      <div class="signup">
+        <div>
+          <p style="margin:0 0 4px"><b>Demo sign-up is open.</b> One sign-up per team.</p>
+          <div class="btns"><a class="btn solid" href="https://docs.google.com/forms/d/e/1FAIpQLSep-2GrULbuZZG95WHuGAIsWCGIJB2AiTR4aXUWw7v_zLowig/viewform?usp=publish-editor" target="_blank" rel="noopener">Sign up to demo</a></div>
+        </div>
+        <img src="img/qr-demo-signup.png" alt="QR code to the demo sign-up form" width="120" height="120">
+      </div>
       <ul class="clean">
-        <li><b>2:30</b> sign-up opens: link posted in the WhatsApp</li>
         <li><b>4:00</b> sign-up closes · <b>4:15</b> running order on screen</li>
         <li><b>4:30</b> local code freeze, demos start</li>
         <li>Slots, first come, first served: 10 or fewer teams, 5 min each; 11 to 18, 3 min; more than 18, the first 18 demo at 3 min</li>
