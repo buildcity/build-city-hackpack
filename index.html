@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- status: draft (v1.2, 2026-11-11: Build with OpenCode card in section 5; project directory link (nearhackathon.com/#projects) in sections 4 and 6; v1.1, 2026-11-11: no Wi-Fi; Tony's two decks as PDFs (Welcome & Quick Start in section 1, Build with ICM in talk 3); rule 2 reworded; v1.0, 2026-11-10), waiting on Tony. Built from stages/06_hackpack/output/hackpack-plan.md v3.1. Model list re-checked 2026-11-10 (z-ai/glm-5.3-flash live). -->
+<!-- status: draft (v1.3, 2026-11-14: Winners section at the top (three winners with the README-based descriptions, Wayo co-working membership, the other 7 demos with their sign-up lines and repos, judges thanked); section 1 and 6 no longer say no judging / sign-up open (Tony); v1.2, 2026-11-11: Build with OpenCode card in section 5; project directory link (nearhackathon.com/#projects) in sections 4 and 6; v1.1, 2026-11-11: no Wi-Fi; Tony's two decks as PDFs (Welcome & Quick Start in section 1, Build with ICM in talk 3); rule 2 reworded; v1.0, 2026-11-10), waiting on Tony. Built from stages/06_hackpack/output/hackpack-plan.md v3.1. Model list re-checked 2026-11-10 (z-ai/glm-5.3-flash live). -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -95,6 +95,23 @@
   .check li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--blue); font-weight: 700; }
   ul.check { padding: 0; margin: 0; }
 
+
+  /* Winners (added 2026-11-14) */
+  .win { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: start; }
+  .place { background: var(--blue); color: var(--on-blue); text-align: center; padding: 8px 0 6px; }
+  .place .n { font-family: var(--head); font-weight: 700; font-size: 34px; line-height: 1; }
+  .place .s { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-top: 2px; }
+  .win h3 { font-size: 24px; margin-bottom: 2px; }
+  .win .pitch { font-family: var(--head); font-weight: 700; font-size: 16px; margin: 2px 0 6px; }
+  .team { font-size: 13px; color: var(--soft); margin: 6px 0 0; }
+  .team b { color: var(--ink); }
+  .prize { display: flex; align-items: center; gap: 12px; }
+  .others { display: grid; gap: 10px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .others { grid-template-columns: 1fr 1fr; } }
+  .others .card { margin: 0; }
+  .others h3 { margin-bottom: 4px; }
+  .others p { font-size: 14px; color: var(--soft); margin: 0; }
+
   footer { margin-top: 30px; padding: 22px 0 36px; border-top: 2px solid var(--ink); font-size: 13px; color: var(--muted); }
   footer .logos { margin: 12px 0 0; }
   footer .legion { height: 34px; width: 34px; }
@@ -121,6 +138,7 @@
 
 <nav class="jump" aria-label="Sections">
   <div class="wrap">
+    <a href="#winners">Winners</a>
     <a href="#start">Start here</a>
     <a href="#welcome">1 Welcome</a>
     <a href="#quickstart">2 Quick start</a>
@@ -132,6 +150,63 @@
 </nav>
 
 <main>
+<!-- ============ WINNERS (added 2026-11-14) ============ -->
+<section id="winners">
+  <div class="wrap">
+    <div class="kicker">Results · Wed Nov 11</div>
+    <h2>The winners</h2>
+    <p>Ten teams built on NEAR AI Cloud in one day and demoed their work. The judges picked these three. Congratulations, and thank you to every builder who got up and showed their work.</p>
+
+    <div class="card blue prize">
+      <div><h3 style="margin-bottom:4px">Each winning team won a free Wayo co-working membership</h3>
+      <p style="margin:0">Wayo connects NYC professionals and teams with independently owned host venues for flexible workdays and focused work.</p></div>
+    </div>
+
+    <div class="card win"><div class="place"><div class="n">1</div><div class="s">1st</div></div><div>
+      <div class="kicker" style="margin-bottom:4px">Retail AI</div>
+      <h3>Secret Sauce</h3>
+      <div class="pitch">A private AI analyst for small restaurants.</div>
+      <p style="margin:0">The owner chats with their own books. A sealed model on NEAR AI Cloud does the thinking through read-only tools, the books stay on the owner's Mac, and over time it teaches a small local model to do the job itself.</p>
+      <p class="team"><b>Luis</b> · <a href="https://x.com/luisalfescobar" target="_blank" rel="noopener">@luisalfescobar</a></p>
+      <div class="btns"><a class="btn solid" href="https://github.com/Escobar-Luis/secret-sauce" target="_blank" rel="noopener">Repo + demo video</a></div>
+    </div></div>
+
+    <div class="card win"><div class="place"><div class="n">2</div><div class="s">2nd</div></div><div>
+      <div class="kicker" style="margin-bottom:4px">Health AI</div>
+      <h3>MediVault</h3>
+      <div class="pitch">Your health data, made simpler and smarter.</div>
+      <p style="margin:0">Brings a patient's latest lab report, doctor's record and pharmacy claims into one picture, explains what needs attention with the evidence behind it, and has a care agent book a specialist follow-up when the results call for one, with private AI protecting the health data.</p>
+      <p class="team"><b>John · Richard · Sowmya</b> · <a href="https://x.com/sowmyapilla03" target="_blank" rel="noopener">@sowmyapilla03</a></p>
+      <div class="btns"><a class="btn solid" href="https://github.com/sowmyapilla028-gif/Medivault" target="_blank" rel="noopener">Repo</a></div>
+    </div></div>
+
+    <div class="card win"><div class="place"><div class="n">3</div><div class="s">3rd</div></div><div>
+      <div class="kicker" style="margin-bottom:4px">Trading</div>
+      <h3>XYR Shield</h3>
+      <div class="pitch">Verify the model, shield the trader.</div>
+      <p style="margin:0">Proves a trading record is honest without revealing the strategy: each trade is committed on NEAR so it can't be edited, deleted or backdated, and buyers' questions are answered by a TEE-attested model on NEAR AI Cloud.</p>
+      <p class="team"><b>Roger M. Benites</b> · <a href="https://x.com/Blockhiveio" target="_blank" rel="noopener">@Blockhiveio</a></p>
+      <div class="btns"><a class="btn solid" href="https://rogermbenites.github.io/xyr-shield/" target="_blank" rel="noopener">Live demo</a><a class="btn" href="https://github.com/rogermbenites/xyr-shield" target="_blank" rel="noopener">Repo</a></div>
+    </div></div>
+
+    <h3 style="margin:24px 0 10px">Shout-out to the other projects that demoed</h3>
+    <div class="others">
+      <div class="card"><h3>Patent Inference</h3><p>Private AI inference for the idea-to-patent lifecycle.</p><p class="team"><b>Nathaniel Endick · Morrison Chang</b> · <a href="https://x.com/nathanielendick" target="_blank" rel="noopener">@nathanielendick</a></p><div class="btns"><a class="btn" href="https://github.com/Junove/patent-inference" target="_blank" rel="noopener">Repo</a></div></div>
+      <div class="card"><h3>Paper Trail</h3><p>A WhatsApp assistant that privately turns immigration documents into a lawyer-ready case file.</p><p class="team"><b>Katey Cox · Mithil Shrimankar</b> · <a href="https://x.com/kateycoxsnz" target="_blank" rel="noopener">@kateycoxsnz</a></p><div class="btns"><a class="btn" href="https://github.com/kateycox/paper-trail" target="_blank" rel="noopener">Repo</a></div></div>
+      <div class="card"><h3>NearAuth</h3><p>Keeps your email safe from being broken into.</p><p class="team"><b>Jo</b></p><div class="btns"><a class="btn" href="https://pauloes-btechs.github.io/NEARAuth/" target="_blank" rel="noopener">Site</a><a class="btn" href="https://github.com/pauloes-btechs/NEARAuth" target="_blank" rel="noopener">Repo</a></div></div>
+      <div class="card"><h3>Money Minions</h3><p>Trading bots, shown visually.</p><p class="team"><b>Simon Glenn</b> · <a href="https://x.com/SimonSoliloquy" target="_blank" rel="noopener">@SimonSoliloquy</a></p></div>
+      <div class="card"><h3>Custodi App</h3><p>Prove facts about your finances, like "income ≥ 3× rent," without sharing your statements.</p><p class="team"><b>Emily Portalatin-Mendez</b> · <a href="https://x.com/emilypmendez" target="_blank" rel="noopener">@emilypmendez</a></p></div>
+      <div class="card"><h3>SRE Agent</h3><p>The SRE agent you can trust with production: proven private before it reads a single log.</p><p class="team"><b>Raviraj</b> · <a href="https://x.com/raviraj_nalls" target="_blank" rel="noopener">@raviraj_nalls</a></p><div class="btns"><a class="btn" href="https://github.com/ravirajnalls/sre-agent-near-ai-inference" target="_blank" rel="noopener">Repo</a></div></div>
+      <div class="card"><h3>Sideline Sheet</h3><p>Turns registration forms into one-page coach sheets. No coach sees a sheet until you approve it.</p><p class="team"><b>Patrick Golden</b> · <a href="https://x.com/patrickgoldenny" target="_blank" rel="noopener">@patrickgoldenny</a></p></div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h3>Thank you to our judges</h3>
+      <p style="margin:0">Sathya, Nav and Jose, for their time and feedback.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ START HERE ============ -->
 <section id="start">
   <div class="wrap">
@@ -184,8 +259,8 @@
       <tr><td>10:10</td><td>Technical talks (four, 20 minutes each)</td></tr>
       <tr><td>11:30</td><td>Idea worksheet, mixer, then build</td></tr>
       <tr><td>1:00</td><td>Lunch &amp; networking</td></tr>
-      <tr><td>1:30</td><td>Building &amp; mentorship · <a href="#submit">demo sign-up</a> open now, closes 4:00</td></tr>
-      <tr><td>4:30</td><td>Project demos &amp; showcase</td></tr>
+      <tr><td>1:30</td><td>Building &amp; mentorship · demo sign-up</td></tr>
+      <tr><td>4:30</td><td>Project demos &amp; showcase · <a href="#winners">the winners</a></td></tr>
       <tr><td>5:30</td><td>Closing &amp; networking</td></tr>
     </table></div>
     <div class="btns" style="margin:0 0 16px"><a class="btn solid" href="files/agenda-and-idea-worksheet.pdf" target="_blank">Agenda + idea worksheet (PDF)</a><a class="btn" href="files/welcome-and-quick-start-tony-singh.pdf?v=wifi2" target="_blank">Welcome &amp; Quick Start slides (PDF)</a></div>
@@ -193,7 +268,7 @@
     <div class="card">
       <h3>Part of the global NEAR Hackathon</h3>
       <p>Today is day 11 of 14. You submit your project to the global hackathon, and you have until <b>Sat Nov 14, 6:59 PM ET</b> to finish it. $250K prize pool across 13 tracks; Track 3 is Privacy &amp; Private AI.</p>
-      <p style="margin:0"><b>No judging today.</b> The 4:30 demos are a showcase; the global judges decide the prizes.</p>
+      <p style="margin:0"><b>Local judges picked three winners</b> from the demos; each won a free Wayo co-working membership (<a href="#winners">see the winners</a>). The global judges decide the hackathon prizes.</p>
     </div>
     <div class="card">
       <h3>Builders Café</h3>
@@ -391,19 +466,8 @@ model:    z-ai/glm-5.3-flash</pre></div>
     <h2>Demo &amp; submit</h2>
 
     <div class="card">
-      <h3>Demo today (a showcase, not a contest)</h3>
-      <div class="signup">
-        <div>
-          <p style="margin:0 0 4px"><b>Demo sign-up is open.</b> One sign-up per team.</p>
-          <div class="btns"><a class="btn solid" href="https://docs.google.com/forms/d/e/1FAIpQLSep-2GrULbuZZG95WHuGAIsWCGIJB2AiTR4aXUWw7v_zLowig/viewform?usp=publish-editor" target="_blank" rel="noopener">Sign up to demo</a></div>
-        </div>
-        <img src="img/qr-demo-signup.png" alt="QR code to the demo sign-up form" width="120" height="120">
-      </div>
-      <ul class="clean">
-        <li><b>4:00</b> sign-up closes · <b>4:15</b> running order on screen</li>
-        <li><b>4:30</b> local code freeze, demos start</li>
-        <li>Slots, first come, first served: 10 or fewer teams, 5 min each; 11 to 18, 3 min; more than 18, the first 18 demo at 3 min</li>
-      </ul>
+      <h3>Demos</h3>
+      <p style="margin:0"><b>Demo sign-up is closed.</b> Ten teams demoed on Nov 11. <a href="#winners">See the winners and every project.</a></p>
     </div>
 
     <div class="card dark">
